@@ -1,21 +1,28 @@
 # Create and run your first GitLab CI/CD pipeline
 
-> ## Pre-requirement
->  - Runner Setup and Registration kora thakte hobe.
->  - See [GitLab Runner Setup and Registration](https://github.com/Omarmdwasimuddin/Docker-Desktop-Register-GitLab-Runner-with-GitLab-Server)
+## পূর্বশর্ত (Pre-requirement)
+
+- Runner Setup এবং Registration করা থাকতে হবে।
+- দেখুন: [GitLab Runner Setup and Registration](https://github.com/Omarmdwasimuddin/Docker-Desktop-Register-GitLab-Runner-with-GitLab-Server)
 
 ---
 
-> #### C:\Users\User\Desktop\Demo\gitlab-runner\config\config.toml  ---> file open kore edit koro
-> add koro `network_mode = "demo_default"`
-```bash
+## ধাপ ১: Runner Config ফাইল Edit করা
+
+নিচের ফাইলটি open করে edit করতে হবে:
+
+```
+C:\Users\User\Desktop\Demo\gitlab-runner\config\config.toml
+```
+
+এই ফাইলে `network_mode = "demo_default"` লাইনটি যোগ করতে হবে।
+
+```toml
 concurrent = 1
 check_interval = 0
 shutdown_timeout = 0
-
 [session_server]
   session_timeout = 1800
-
 [[runners]]
   name = "my-docker-runner"
   url = "http://my-gitlab-server"
@@ -43,30 +50,47 @@ shutdown_timeout = 0
     network_mtu = 0
     network_mode = "demo_default"
 ```
-#### Runner রিস্টার্ট করো 
-##### PowerShell-এ:
+
+### Runner Restart করা
+
+**PowerShell-এ চালাতে হবে:**
+
 ```bash
 docker restart my-gitlab-runner
 ```
 
-#### restart হয়েছে কিনা যাচাই করো
+### Restart হয়েছে কিনা যাচাই করা
+
 ```bash
 docker logs my-gitlab-runner --tail 20
 ```
+
 ---
 
+## ধাপ ২: নতুন Project তৈরি করা
 
-#### visit: http://localhost:8000/dashboard/projects ---> click: New project ---> click: Create blank project ---> Project name: My first pipeline ---> Project URL daw ---> Visibility Level: public ---> click: Create project
-<img width="1546" height="801" alt="image" src="https://github.com/user-attachments/assets/ffee2040-1e27-40c5-9d7e-a9ed2177f699" />
+নিচের ধাপগুলো অনুসরণ করতে হবে:
 
+1. Visit করুন: `http://localhost:8000/dashboard/projects`
+2. **New project** এ ক্লিক করুন
+3. **Create blank project** এ ক্লিক করুন
+4. Project name দিন: `My first pipeline`
+5. Project URL দিন
+6. Visibility Level সিলেক্ট করুন: `public`
+7. **Create project** এ ক্লিক করুন
 
+<img width="1546" height="801" alt="Create blank project screenshot" src="https://github.com/user-attachments/assets/ffee2040-1e27-40c5-9d7e-a9ed2177f699" />
 
-> #### `.gitlab-ci.yml` ফাইল বানানো
-> - বামের সাইডবারে Code > Repository
-> - উপরে ডানদিকে + আইকনে ক্লিক করে New file
-> - Filename এ লিখো: `.gitlab-ci.yml`
-> - নিচের কোড পেস্ট করো:
-```bash
+---
+
+## ধাপ ৩: `.gitlab-ci.yml` ফাইল তৈরি করা
+
+1. বামের sidebar-এ যান: **Code > Repository**
+2. উপরে ডানদিকে `+` আইকনে ক্লিক করে **New file** সিলেক্ট করুন
+3. Filename এ লিখুন: `.gitlab-ci.yml`
+4. নিচের code টি paste করুন:
+
+```yaml
 build-job:
   stage: build
   tags:
@@ -97,16 +121,33 @@ deploy-prod:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
   environment: production
 ```
+
+এই pipeline-এ মোট ৩টি stage আছে: `build`, `test`, এবং `deploy`।
+
 ---
 
+## ধাপ ৪: Pipeline দেখা ও যাচাই করা
 
-#### Go to Build > Pipelines. A pipeline with three stages should be displayed:
-<img width="1269" height="155" alt="image" src="https://github.com/user-attachments/assets/ca244bd9-8ea4-4876-8097-3841034a6b31" />
+### Pipeline List দেখা
 
-#### View a visual representation of your pipeline by selecting the pipeline ID (#2435445330 in this example):
-<img width="927" height="445" alt="image" src="https://github.com/user-attachments/assets/8c30af98-ff59-4f8a-8241-30ffc760dec2" />
+**Build > Pipelines**-এ যান। এখানে ৩টি stage সহ একটি pipeline দেখা যাবে:
 
-#### View details of a job by selecting the job name. For example, deploy-prod:
-<img width="984" height="706" alt="image" src="https://github.com/user-attachments/assets/46d12bca-5af8-492c-a2fb-5aadc6175870" />
+<img width="1269" height="155" alt="Pipeline list with three stages" src="https://github.com/user-attachments/assets/ca244bd9-8ea4-4876-8097-3841034a6b31" />
 
-> You have successfully created your first CI/CD pipeline in GitLab. Congratulations!
+### Pipeline-এর Visual Representation দেখা
+
+Pipeline ID-তে ক্লিক করলে (উদাহরণস্বরূপ `#2435445330`) visual representation দেখা যাবে:
+
+<img width="927" height="445" alt="Pipeline visual representation" src="https://github.com/user-attachments/assets/8c30af98-ff59-4f8a-8241-30ffc760dec2" />
+
+### নির্দিষ্ট Job-এর Details দেখা
+
+Job name-এ ক্লিক করলে সেই job-এর details দেখা যাবে। উদাহরণস্বরূপ `deploy-prod`:
+
+<img width="984" height="706" alt="deploy-prod job details" src="https://github.com/user-attachments/assets/46d12bca-5af8-492c-a2fb-5aadc6175870" />
+
+---
+
+## সম্পন্ন! 🎉
+
+আপনি সফলভাবে GitLab-এ আপনার প্রথম CI/CD pipeline তৈরি করে ফেলেছেন। Congratulations!
