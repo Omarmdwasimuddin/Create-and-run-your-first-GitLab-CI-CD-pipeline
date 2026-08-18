@@ -18,21 +18,21 @@
 ```bash
 build-job:
   stage: build
-  tag:
+  tags:
     - docker
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
 
 test-job1:
   stage: test
-  tag:
+  tags:
     - docker
   script:
     - echo "This job tests something"
 
 test-job2:
   stage: test
-  tag:
+  tags:
     - docker
   script:
     - echo "This job tests something, but takes more time than test-job1."
@@ -40,6 +40,8 @@ test-job2:
 
 deploy-prod:
   stage: deploy
+  tags:
+    - docker
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
   environment: production
