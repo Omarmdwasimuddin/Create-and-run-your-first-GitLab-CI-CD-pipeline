@@ -10,7 +10,7 @@
 
 
 
-#### `.gitlab-ci.yml` ফাইল বানানো
+> #### `.gitlab-ci.yml` ফাইল বানানো
 > - বামের সাইডবারে Code > Repository
 > - উপরে ডানদিকে + আইকনে ক্লিক করে New file
 > - Filename এ লিখো: `.gitlab-ci.yml`
