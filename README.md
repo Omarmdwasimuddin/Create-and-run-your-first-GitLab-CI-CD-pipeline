@@ -1,5 +1,8 @@
 # Create and run your first GitLab CI/CD pipeline
 
+> ## Pre-requirement
+>  - Runner Setup and Registration kora thakte hobe.
+>  - See [GitLab Runner Setup and Registration](https://github.com/Omarmdwasimuddin/Docker-Desktop-Register-GitLab-Runner-with-GitLab-Server)
 
 #### .gitlab-ci.yml
 ```bash
