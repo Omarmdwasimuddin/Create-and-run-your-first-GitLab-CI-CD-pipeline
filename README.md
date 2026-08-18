@@ -43,6 +43,16 @@ shutdown_timeout = 0
     network_mtu = 0
     network_mode = "demo_default"
 ```
+#### Runner রিস্টার্ট করো 
+##### PowerShell-এ:
+```bash
+docker restart my-gitlab-runner
+```
+
+#### restart হয়েছে কিনা যাচাই করো
+```bash
+docker logs my-gitlab-runner --tail 20
+```
 ---
 
 
