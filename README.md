@@ -50,7 +50,7 @@ deploy-prod:
 
 
 #### Go to Build > Pipelines. A pipeline with three stages should be displayed:
-<img width="1626" height="302" alt="image" src="https://github.com/user-attachments/assets/d93bf9bb-0c4e-451d-9f29-d1ceb8185847" />
+<img width="1269" height="155" alt="image" src="https://github.com/user-attachments/assets/ca244bd9-8ea4-4876-8097-3841034a6b31" />
 
 #### View a visual representation of your pipeline by selecting the pipeline ID (#2435445330 in this example):
 <img width="927" height="445" alt="image" src="https://github.com/user-attachments/assets/8c30af98-ff59-4f8a-8241-30ffc760dec2" />
