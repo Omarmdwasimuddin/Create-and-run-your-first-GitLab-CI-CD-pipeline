@@ -56,6 +56,6 @@ deploy-prod:
 <img width="927" height="445" alt="image" src="https://github.com/user-attachments/assets/8c30af98-ff59-4f8a-8241-30ffc760dec2" />
 
 #### View details of a job by selecting the job name. For example, deploy-prod:
-<img width="1858" height="1240" alt="image" src="https://github.com/user-attachments/assets/a03c1eb8-4d51-4335-a12b-46c330c9cfe2" />
+<img width="984" height="706" alt="image" src="https://github.com/user-attachments/assets/46d12bca-5af8-492c-a2fb-5aadc6175870" />
 
 > You have successfully created your first CI/CD pipeline in GitLab. Congratulations!
