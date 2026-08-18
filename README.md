@@ -53,7 +53,7 @@ deploy-prod:
 <img width="1626" height="302" alt="image" src="https://github.com/user-attachments/assets/d93bf9bb-0c4e-451d-9f29-d1ceb8185847" />
 
 #### View a visual representation of your pipeline by selecting the pipeline ID (#2435445330 in this example):
-<img width="1750" height="462" alt="image" src="https://github.com/user-attachments/assets/d212fc4c-d142-4453-b902-3a289da718f5" />
+<img width="927" height="445" alt="image" src="https://github.com/user-attachments/assets/8c30af98-ff59-4f8a-8241-30ffc760dec2" />
 
 #### View details of a job by selecting the job name. For example, deploy-prod:
 <img width="1858" height="1240" alt="image" src="https://github.com/user-attachments/assets/a03c1eb8-4d51-4335-a12b-46c330c9cfe2" />
