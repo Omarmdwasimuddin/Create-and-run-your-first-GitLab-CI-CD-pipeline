@@ -9,7 +9,12 @@
 <img width="1546" height="801" alt="image" src="https://github.com/user-attachments/assets/ffee2040-1e27-40c5-9d7e-a9ed2177f699" />
 
 
-#### .gitlab-ci.yml
+
+#### `.gitlab-ci.yml` ফাইল বানানো
+> - বামের সাইডবারে Code > Repository
+> - উপরে ডানদিকে + আইকনে ক্লিক করে New file
+> - Filename এ লিখো: `.gitlab-ci.yml`
+> - নিচের কোড পেস্ট করো:
 ```bash
 build-job:
   stage: build
