@@ -18,16 +18,22 @@
 ```bash
 build-job:
   stage: build
+  tag:
+    - docker
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
 
 test-job1:
   stage: test
+  tag:
+    - docker
   script:
     - echo "This job tests something"
 
 test-job2:
   stage: test
+  tag:
+    - docker
   script:
     - echo "This job tests something, but takes more time than test-job1."
     - sleep 20
