@@ -1,1 +1,1 @@
-# Create-and-run-your-first-GitLab-CI-CD-pipeline
+# Create and run your first GitLab CI/CD pipeline
