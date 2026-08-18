@@ -5,6 +5,46 @@
 >  - See [GitLab Runner Setup and Registration](https://github.com/Omarmdwasimuddin/Docker-Desktop-Register-GitLab-Runner-with-GitLab-Server)
 
 
+> #### C:\Users\User\Desktop\Demo\gitlab-runner\config\config.toml  ---> file open kore edit koro
+> add koro `network_mode = "demo_default"`
+```bash
+concurrent = 1
+check_interval = 0
+shutdown_timeout = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "my-docker-runner"
+  url = "http://my-gitlab-server"
+  id = 1
+  token = "glrtr-NABy5HTJzrEsdJecko-D"
+  token_obtained_at = 2026-08-12T00:50:31Z
+  token_expires_at = 0001-01-01T00:00:00Z
+  executor = "docker"
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+    [runners.cache.s3]
+      AssumeRoleMaxConcurrency = 0
+    [runners.cache.gcs]
+    [runners.cache.azure]
+  [runners.docker]
+    tls_verify = false
+    image = "alpine:latest"
+    privileged = false
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    disable_cache = false
+    volumes = ["/cache"]
+    volume_keep = false
+    shm_size = 0
+    network_mtu = 0
+    network_mode = "demo_default"
+```
+---
+
+
 #### visit: http://localhost:8000/dashboard/projects ---> click: New project ---> click: Create blank project ---> Project name: My first pipeline ---> Project URL daw ---> Visibility Level: public ---> click: Create project
 <img width="1546" height="801" alt="image" src="https://github.com/user-attachments/assets/ffee2040-1e27-40c5-9d7e-a9ed2177f699" />
 
